@@ -1,0 +1,367 @@
+// ****************************
+//                            *
+//   Arath start sequence     *
+//                            *
+// ****************************
+
+IF
+    Global("LK#ArathCCFight","AR0406",1)
+THEN
+  RESPONSE #100
+    SetGlobal("LK#ArathCCFight","AR0406",2)
+    Wait(10)
+    Deactivate(Myself)
+END
+
+IF
+    Global("LK#ArathCCTalk","GLOBAL",1)
+THEN
+  RESPONSE #100
+    SetGlobal("LK#ArathCCTalk","GLOBAL",2)
+    JumpToPoint([1346.1500])
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+IF
+    Global("LK#ArathMet","AR0406",1)
+    Global("HendakReleased","AR0406",4)
+THEN
+  RESPONSE #100
+    SetGlobal("LK#ArathMet","AR0406",2)
+END
+
+
+// When in party
+IF
+    InParty(Myself)
+    !StateCheck("Arath",CD_STATE_NOTVALID)
+    Global("LK#ArathCCFight","AR0406",2)
+    Global("HendakReleased","AR0406",3)
+    Global("LK#ArathCCSlavers","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("LK#ArathCCSlavers","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    !StateCheck("Arath",CD_STATE_NOTVALID)
+    Global("LK#ArathCCSlavers","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+// AR0404; triggered in front of Slaver Stockade door
+IF
+    InParty(Myself)
+    !StateCheck("Arath",CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("LK#ArathCCTrig","AR0404",1)
+    Global("LK#ArathJoinDoor","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("LK#ArathJoinDoor","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    !StateCheck("Arath",CD_STATE_NOTVALID)
+    Global("LK#ArathJoinDoor","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+// AR0405; in top right room of slaver stockade
+IF
+    InParty(Myself)
+    !StateCheck("Arath",CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("LK#ArathCCTrig2","AR0405",1)
+    Global("LK#ArathSlavers","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("LK#ArathSlavers","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    !StateCheck("Arath",CD_STATE_NOTVALID)
+    Global("LK#ArathSlavers","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+// after telling Hendak
+IF
+    InParty(Myself)
+    !StateCheck("Arath",CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    Global("HendakReleased","AR0406",4)
+    Global("LK#ArathJoinTalk","GLOBAL",0)
+THEN
+  RESPONSE #100
+    SetGlobal("LK#ArathJoinTalk","GLOBAL",1)
+END
+
+IF
+    InParty(Myself)
+    !StateCheck("Arath",CD_STATE_NOTVALID)
+    Global("LK#ArathJoinTalk","GLOBAL",1)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// ****************************
+//                            *
+// Arath non-romantic content *
+//                            *
+// ****************************
+
+// Scenery: Underdark
+IF
+    InParty(Myself)
+    See(Player1)
+    AreaCheck("AR2200")
+    Global("LK#ArathUnderdark","GLOBAL",0)
+THEN
+  RESPONSE #50
+    SetGlobal("LK#ArathUnderdark","GLOBAL",1)
+    RealSetGlobalTimer("LK#ArathUnderdarkTimer","GLOBAL",600)
+  RESPONSE #50
+    SetGlobal("LK#ArathUnderdark","GLOBAL",1)
+    RealSetGlobalTimer("LK#ArathUnderdarkTimer","GLOBAL",1200)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    Global("LK#ArathUnderdark","GLOBAL",1)
+    RealGlobalTimerExpired("LK#ArathUnderdarkTimer","GLOBAL")
+THEN
+  RESPONSE #100
+    SetGlobal("LK#ArathUnderdark","GLOBAL",2)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !Detect([ENEMY])
+    Global("LK#ArathUnderdark","GLOBAL",2)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+
+// Scenery: North Forest
+IF
+    InParty(Myself)
+    See(Player1)
+    OR(2)
+      AreaCheck("AR1700")
+      AreaCheck("AR1800")
+    Global("LK#ArathNorthForest","GLOBAL",0)
+THEN
+  RESPONSE #50
+    SetGlobal("LK#ArathNorthForest","GLOBAL",1)
+    RealSetGlobalTimer("LK#ArathNorthForestTimer","GLOBAL",30)
+  RESPONSE #50
+    SetGlobal("LK#ArathNorthForest","GLOBAL",1)
+    RealSetGlobalTimer("LK#ArathNorthForestTimer","GLOBAL",120)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    Global("LK#ArathNorthForest","GLOBAL",1)
+    RealGlobalTimerExpired("LK#ArathNorthForestTimer","GLOBAL")
+THEN
+  RESPONSE #100
+    SetGlobal("LK#ArathNorthForest","GLOBAL",2)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    OR(2)
+      AreaCheck("AR1700")
+      AreaCheck("AR1800")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !Detect([ENEMY])
+    Global("LK#ArathNorthForest","GLOBAL",2)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+// Plot: Killing the dragon in Suldannessellar
+IF
+    InParty(Myself)
+    See(Player1)
+    Dead("dragblac")
+    Global("LK#ArathNorthForest","GLOBAL",0)
+THEN
+  RESPONSE #50
+    SetGlobal("LK#ArathNorthForest","GLOBAL",1)
+    RealSetGlobalTimer("LK#ArathNorthForestTimer","GLOBAL",30)
+  RESPONSE #50
+    SetGlobal("LK#ArathNorthForest","GLOBAL",1)
+    RealSetGlobalTimer("LK#ArathNorthForestTimer","GLOBAL",120)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    Global("LK#ArathNorthForest","GLOBAL",1)
+    RealGlobalTimerExpired("LK#ArathNorthForestTimer","GLOBAL")
+THEN
+  RESPONSE #100
+    SetGlobal("LK#ArathNorthForest","GLOBAL",2)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !Detect([ENEMY])
+    Global("LK#ArathNorthForest","GLOBAL",2)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+// Plot: Killing Firkraag
+
+// Scenery: On Being Raised
+
+// Scenery: On Being Raised... Again
+
+// Scenery: Caged Animals in Athkatla
+
+// Plot: Lavok and the Planar Sphere
+
+// Plot: Corrupted Forest
+IF
+    InParty(Myself)
+    See(Player1)
+    AreaCheck("AR1404")
+    Global("LK#ArathShade","GLOBAL",0)
+THEN
+  RESPONSE #50
+    SetGlobal("LK#ArathShade","GLOBAL",1)
+    RealSetGlobalTimer("LK#ArathShadeTimer","GLOBAL",30)
+  RESPONSE #50
+    SetGlobal("LK#ArathShade","GLOBAL",1)
+    RealSetGlobalTimer("LK#ArathShadeTimer","GLOBAL",120)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    Global("LK#ArathShade","GLOBAL",1)
+    RealGlobalTimerExpired("LK#ArathShadeTimer","GLOBAL")
+THEN
+  RESPONSE #100
+    SetGlobal("LK#ArathShade","GLOBAL",2)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    AreaCheck("AR1404")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !Detect([ENEMY])
+    Global("LK#ArathShade","GLOBAL",2)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+// Plot: Working for Bodhi
+
+// Plot: Working for the Shadow Thieves
+
+// Plot: PC Loses his/her soul in Spellhold
+
+// Plot: Sahuagin City
+IF
+    InParty(Myself)
+    See(Player1)
+    AreaCheck("AR1404")
+    Global("LK#ArathSahuagin","GLOBAL",0)
+THEN
+  RESPONSE #50
+    SetGlobal("LK#ArathSahuagin","GLOBAL",1)
+    RealSetGlobalTimer("LK#ArathSahuaginTimer","GLOBAL",600)
+  RESPONSE #50
+    SetGlobal("LK#ArathSahuagin","GLOBAL",1)
+    RealSetGlobalTimer("LK#ArathSahuaginTimer","GLOBAL",1200)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    Global("LK#ArathSahuagin","GLOBAL",1)
+    RealGlobalTimerExpired("LK#ArathSahuaginTimer","GLOBAL")
+THEN
+  RESPONSE #100
+    SetGlobal("LK#ArathSahuagin","GLOBAL",2)
+END
+
+IF
+    InParty(Myself)
+    See(Player1)
+    AreaCheck("AR1404")
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !Detect([ENEMY])
+    Global("LK#ArathSahuagin","GLOBAL",2)
+THEN
+  RESPONSE #100
+    MoveToObject(Player1)
+    Dialogue(Player1)
+END
+
+// Plot: Shadow Druids, pt. I
+
+// Plot: Shadow Druids, pt. II
+
+// Random: Oh God, The Hair, It Has Been Cut (put in B file?)
+
+// Plot: The de'Arnise Keep
+
+// Plot: Post-Killing Bodhi
+
+
+
+
+
+// ****************************
+//                            *
+//  Scripted NPC Interaction  *
+//                            *
+// ****************************

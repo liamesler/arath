@@ -1,0 +1,7 @@
+IF
+    Entered(Player1)
+    Global("LK#ArathCCTrig2","AR0405",0)
+THEN
+  RESPONSE #100
+    SetGlobal("LK#ArathCCTrig2","AR0405",1)
+END
