@@ -61,6 +61,29 @@ Global("LK#ArathAerie","GLOBAL",3)~ THEN BLK#ARAT a4
   = ~Maybe if you stopped thinking with your--with your manhood--you'd stop and realise that sometimes you have to pull your head out of your behind!~
 EXIT
 
+CHAIN IF ~InParty("Arath")
+See("Arath")
+!StateCheck("Arath",CD_STATE_NOTVALID)
+!StateCheck("Aerie",CD_STATE_NOTVALID)
+CombatCounter(0)
+Gender(Player1,MALE)
+Global("LK#ArathRomanceActive","GLOBAL",1)
+Global("AerieRomanceActive","GLOBAL",1)
+Global("LK#ArathAerieRom","GLOBAL",0)~ THEN BAERIE a5
+  ~Y-you've been spending an awful lot of time with <CHARNAME> recently, Arath. I-it's nice to see the two of you becoming friends.~
+  DO ~SetGlobal("LK#ArathAerieRom","GLOBAL",1)~
+  == BLK#ARAT ~Huh?~
+  = ~Oh gods, you're serious. Alright. Well, that's great you think that, Aerie. I hope we'll be getting even closer soon.~
+  == BAERIE ~Even closer...? Oh. I... I don't know if I like that idea.~
+  == BLK#ARAT ~Awful that you don't have much of a choice in it, right?~
+  == BAERIE ~Y-you stay away from him!~
+  == BLK#ARAT ~You know, I think that's the most worked up I've ever seen you. Congratulations! Good to know that you're not *entirely* spineless.~
+  == BAERIE ~I'm not spineless, and... and you had better be careful. I'm watching you!~
+  == BLK#ARAT ~Oh, good. But honestly?~
+  = ~I'm pretty used to people looking at me. Like <CHARNAME>.~
+EXIT
+
+
 // Anomen SoA
 CHAIN IF ~InParty("Arath")
 See("Arath")
@@ -125,12 +148,31 @@ Global("LK#ArathAnomen","GLOBAL",1)~ THEN BANOMEN an3
   == BANOMEN ~It matters a great deal.~
 EXIT
 
+CHAIN IF ~InParty("Arath")
+See("Arath")
+!StateCheck("Arath",CD_STATE_NOTVALID)
+!StateCheck("Anomen",CD_STATE_NOTVALID)
+CombatCounter(0)
+Global("LK#ArathRomanceActive","GLOBAL",1)
+Global("AnomenRomanceActive","GLOBAL",1)
+Global("LK#ArathAnomenRom","GLOBAL",1)~ THEN BANOMEN an4
+  ~I am only going to say this once, Duskhelm, so listen closely. You are not to sully <CHARNAME> with your depraved advances. She is a better person than you could ever hope to be, and I will not have you dragging her down with your filth.~
+  == LK#ARATJ ~Uh. Well, thanks, but I'm fine, thank you.~
+  == BANOMEN ~You are a lecherous, deceitful excuse for a man, and she deserves better.~
+  == LK#ARATJ ~And I suppose that would be you?~
+  == BANOMEN ~If she chooses it to be.~
+  == LK#ARATJ ~Right. Well, I'll keep that in mind.~
+  == BANOMEN ~Please do.~
+EXIT
+
+
 // Cernd SoA
 CHAIN IF ~InParty("Cernd")
 See("Cernd")
 !StateCheck("Cernd",CD_STATE_NOTVALID)
 !StateCheck("Arath",CD_STATE_NOTVALID)
 CombatCounter(0)
+AreaType([CITY])
 Global("LK#ArathCernd","GLOBAL",0)~ THEN BLK#ARAT c1
   ~Your expression speaks volumes.~
   DO ~SetGlobal("LK#ArathCernd","GLOBAL",1)~
@@ -151,6 +193,7 @@ See("Cernd")
 !StateCheck("Cernd",CD_STATE_NOTVALID)
 !StateCheck("Arath",CD_STATE_NOTVALID)
 CombatCounter(0)
+AreaType([FOREST])
 Global("LK#ArathCernd","GLOBAL",1)~ THEN BLK#ARAT c2
   ~Dogwood.~
   DO ~SetGlobal("LK#ArathCernd","GLOBAL",2)~
@@ -215,6 +258,22 @@ Global("LK#ArathEdwin","GLOBAL",2)~ THEN BEDWIN e3
   == BEDWIN  ~Get out of my sight, you pathetic excuse for a druid, and next time you come to me before deciding what kind of fungi goes in your accursed tonics!~
 EXIT
 
+CHAIN IF ~InParty("Edwin")
+See("Edwin")
+!StateCheck("Edwin",CD_STATE_NOTVALID)
+!StateCheck("Arath",CD_STATE_NOTVALID)
+CombatCounter(0)
+Gender("Edwin",FEMALE)
+Global("LK#ArathEdwinChange","GLOBAL",0)~ THEN BLK#ARAT e4
+  ~I like the new look, Edwin. It suits you. (grin)~
+  DO ~SetGlobal("LK#ArathEdwinChange","GLOBAL",1)~
+  == BEDWIN ~Shut your mouth! This form is completely inappropriate to house my genius!~
+  == BLK#ARAT ~I'm sure it has its merits though, right?~
+  == BEDWIN ~I don't know what you're talking about.~
+  == BLK#ARAT ~Hey, I don't want to pry. I'm just saying, you may as well enjoy it while it lasts. Most men would kill for a day in a woman's body.~
+  == BEDWIN ~Enough of your insolence! (They are all insufferable! Right he may be, but one day is more than enough of this curse!)~
+EXIT
+
 // Haer'Dalis SoA
 CHAIN IF ~InParty("Haerdalis")
 See("Haerdalis")
@@ -274,8 +333,8 @@ Global("LK#ArathImoen","GLOBAL",1)~ THEN BIMOEN2 i2
   ~You know, Arath, you're not so bad. A bit old to be sporting that hair, but hey, you pull it off, so bravo to you.~
   DO ~SetGlobal("LK#ArathImoen","GLOBAL",2)~
   == BLK#ARAT ~Thank you! I quite--~
-  = ~Wait a moment. I'm not old! I'm twenty four. That's hardly *old*.~
-  == BIMOEN2 ~So that means you're almost twenty five. That's only five years to thirty. And when you turn thirty, let's be honest here, you may as well be dead.~
+  = ~Wait a moment. I'm not old! I'm twenty-four. That's hardly *old*.~
+  == BIMOEN2 ~So that means you're almost twenty-five. That's only five years to thirty. And when you turn thirty, let's be honest here, you may as well be dead.~
   = ~I'm teasing, Arath. No need to look so worried.~
   = ~Wait, is that a grey hair?~
   == BLK#ARAT ~What?! Where?!~
@@ -288,6 +347,7 @@ See("Arath")
 !StateCheck("Jaheira",CD_STATE_NOTVALID)
 !StateCheck("Arath",CD_STATE_NOTVALID)
 CombatCounter(0)
+AreaType([CITY])
 Global("LK#ArathJaheira","GLOBAL",0)~ THEN BJAHEIR j1
   ~What do you think you are doing, staring at that man? This is Amn, child, you do not know if he was armed or dangerous. I suggest you keep your eyes on the road.~
   DO ~SetGlobal("LK#ArathJaheira","GLOBAL",1)~
@@ -302,7 +362,6 @@ See("Jaheira")
 !StateCheck("Jaheira",CD_STATE_NOTVALID)
 !StateCheck("Arath",CD_STATE_NOTVALID)
 CombatCounter(0)
-AreaType(CITY)
 Global("LK#ArathJaheira","GLOBAL",1)~ THEN BLK#ARAT j2
   ~I don't need you standing over my shoulder every time I cast something, you know. I am more than capable of handling things on my own.~
   DO ~SetGlobal("LK#ArathJaheira","GLOBAL",2)~
@@ -314,6 +373,28 @@ Global("LK#ArathJaheira","GLOBAL",1)~ THEN BLK#ARAT j2
   == BLK#ARAT ~Yes. Well.~
   == BJAHEIR ~I do not say these things because I get some bizarre enjoyment from making you feel guilty, you know. It is my job as an elder druidess to teach you more of the Way. I take that job seriously. When I say something, listen. I do not say it for kicks.~
 EXIT
+
+CHAIN IF ~InParty("Jaheira")
+See("Jaheira")
+!StateCheck("Jaheira",CD_STATE_NOTVALID)
+!StateCheck("Arath",CD_STATE_NOTVALID)
+CombatCounter(0)
+Global("LK#ArathRomanceActive","GLOBAL",1)
+Global("JaheiraRomanceActive","GLOBAL",1)
+Global("LK#ArathJaheiraRom","GLOBAL",0)~ THEN BLK#ARAT j3
+  ~What's your problem today, Jaheira? I was relatively sure I hadn't done anything incriminating in the last few hours, but hey, I could be wrong.~
+  DO ~SetGlobal("LK#ArathJaheiraRom","GLOBAL",1)~
+  == BJAHEIR ~I do not have a problem, Arath. Nothing of the sort.~
+  == BLK#ARAT ~Then why are you glaring at me so intensely?~
+  == BJAHEIR ~You and <CHARNAME> seem to be getting rather close. I am simply wondering what effect that relationship will have on him... positive or negative.~
+  == BLK#ARAT ~Who are you to decide who <CHARNAME> gets to talk to? His mother?~
+  == BJAHEIR ~His friend and mentor.~
+  == BLK#ARAT ~Oh, I see. So it couldn't be that you have feelings for him, and are jealous of my spending time with him?~
+  == BJAHEIR ~Don't be absurd. A druid you may be, Arath, but I have not made up my mind about you yet. Gorion tasked me to look after <CHARNAME>, and I take that responsibility very seriously--~
+  == BLK#ARAT ~Obviously, or you wouldn't spend so long staring after him besottedly. Don't worry, Jaheira, I have no romantic intentions. Trust me.~
+  == BJAHEIR ~As I would a snake.~
+EXIT
+
 
 // Jan SoA
 CHAIN IF ~InParty("Jan")
@@ -552,10 +633,10 @@ See("Arath")
 !StateCheck("Arath",CD_STATE_NOTVALID)
 CombatCounter(0)
 Global("LK#ArathNalia","GLOBAL",0)~ THEN BNALIA n1
-  ~Arath, I would have a word with you. It may have escaped some of the others, but I know full well what you were doing at the Coronet.~
+  ~Arath, I would have a word with you. It may have escaped some of the others, but I know full well of your reputation at the Coronet.~
   DO ~SetGlobal("LK#ArathNalia","GLOBAL",1)~
   == BLK#ARAT ~Nothing that I'm ashamed of.~
-  == BNALIA ~You should be. Those poor women... how could you demean them like that?~
+  == BNALIA ~You should be. Those poor men and women... how could you demean them like that?~
   == BLK#ARAT ~For one, I didn't demean them, and two, they're the ones offering. They choose to enter into the profession they do, Nalia, knowing full well what it means. None of them are stupid.~
   == BNALIA ~What an ignorant viewpoint. You think they choose to sell and degrade themselves as they do?~
   == BLK#ARAT ~Well, yes. Otherwise why would they be doing it?~
@@ -634,7 +715,7 @@ See("Arath")
 !StateCheck("Arath",CD_STATE_NOTVALID)
 CombatCounter(0)
 Global("LK#ArathViconia","GLOBAL",0)~ THEN BVICONI vc1
-  ~A bit thin for my tastes, but I suppose you'll do.~
+  ~A bit thin for my tastes, but I suppose you will do.~
   DO ~SetGlobal("LK#ArathViconia","GLOBAL",1)~ 
   == BLK#ARAT ~You suppose I'll do for... what?~
   == BVICONI ~Excellent muscle tone, for a rivvil druid.~
@@ -698,7 +779,244 @@ Global("LK#ArathViconiaUD","GLOBAL",0)~ THEN BLK#ARAT vc4
   == BVICONI ~Dealing with iblith such as yourself drives me to distraction. This is me being polite; I doubt you'd survive long otherwise.~
 EXIT
 
-// Viconia ToB
+CHAIN IF ~InParty("Arath")
+See("Arath")
+!StateCheck("Viconia",CD_STATE_NOTVALID)
+!StateCheck("Arath",CD_STATE_NOTVALID)
+CombatCounter(0)
+Global("LK#ArathRomanceActive","GLOBAL",1)
+Global("ViconiaRomanceActive","GLOBAL",1)
+Global("LK#ArathViconiaRom","GLOBAL",0)~ THEN BVICONI vc5
+  ~Your attempts to gain <CHARNAME>'s attentions are laughable at best, rivvil. You had best quit while you are ahead.~
+  DO ~SetGlobal("LK#ArathViconiaRom","GLOBAL",1) SetGlobal("LK#ArathViconia","GLOBAL",3)~
+  == BLK#ARAT ~Nice to know that I'm ahead, Viconia. Thanks for the encouragement!~
+  == BVICONI ~You know full well what I meant. <CHARNAME> has no interest in your limp attempts to bed him, wael.~
+  == BLK#ARAT ~I wouldn't say that. He certainly seems to enjoy it.~
+  == BVICONI ~Then let me speak more plainly.~
+  == BLK#ARAT ~You weren't speaking plainly before?~
+  == BVICONI ~Desist, or I'll ensure you do not have a chance to continue.~
+EXIT
 
 
 // Yoshimo SoA
+CHAIN IF ~InParty("Yoshimo")
+See("Yoshimo")
+!StateCheck("Yoshimo",CD_STATE_NOTVALID)
+!StateCheck("Arath",CD_STATE_NOTVALID)
+CombatCounter(0)
+Global("LK#ArathYosh","GLOBAL",0)~ THEN BLK#ARAT y1
+  ~You're a rather attractive man, if I may say so, my Kara-Turan friend. Have you ever considered...?~
+  DO ~SetGlobal("LK#ArathYosh","GLOBAL",1)~
+  == BYOSHIM ~Ah, I am afraid not. I admit to having dabbled with it in the past, but as it turned out, it was not for me.~
+  == BLK#ARAT ~That's... a shame. I suppose kohl isn't for everyone.~
+  == BYOSHIM  ~The company I was with was mightily disappointed with the results, as you might imagine.~
+  == BLK#ARAT ~Heh, yes, it can get a little messy if not done properly. Nevermind, I just thought perhaps you might be able to pull it off.~
+  == BYOSHIM  ~There are many things I am able to pull off, my friend, but kohl has unfortunately never been one of them!~
+EXIT
+
+CHAIN IF ~InParty("Yoshimo")
+See("Yoshimo")
+!StateCheck("Yoshimo",CD_STATE_NOTVALID)
+!StateCheck("Arath",CD_STATE_NOTVALID)
+CombatCounter(0)
+Global("LK#ArathYosh","GLOBAL",1)~ THEN BLK#ARAT y2
+  ~I hear you're a mean card shark, Yoshimo. Can I interest you in a game?~
+  DO ~SetGlobal("LK#ArathYosh","GLOBAL",2)~
+  == BYOSHIM  ~That would depend on the incentive, my friend! What is on offer?~
+  == BLK#ARAT ~Some coin, over a bottle of Argyllian red wine?~
+  == BYOSHIM  ~I prefer sake myself, but the ring of gold is ever a pleasant one!~
+  == BLK#ARAT ~I, uh, have to confess, I'm not terribly good at cards. I was hoping you might teach me.~
+  == BYOSHIM  ~Hahah! The great Yoshimo is more than happy to teach those who seek it. What experience have you?~
+  == BLK#ARAT ~I have a deck of cards? That's about it, really.~
+  == BYOSHIM  ~Ah. Then we shall start at the beginning.~
+  == BLK#ARAT ~That's... probably best.~
+EXIT
+
+
+APPEND BLK#ARAT
+// Misc: Oh God, The Hair, It Has Been Cut
+IF WEIGHT #4 ~InParty(Myself)
+    See(Player1)
+    !StateCheck(Myself,CD_STATE_NOTVALID)
+    !StateCheck(Player1,CD_STATE_NOTVALID)
+    CombatCounter(0)
+    !Detect([ENEMY])
+    Global("LK#ArathBhaal","GLOBAL",9)
+    Global("LK#ArathHair","GLOBAL",0)~ a16
+  SAY ~<CHARNAME>, is my hair alright? I had a bit of a tree-accident and there was fire involved. I had to cut it a bit.~
+  = ~It looks awful, doesn't it. I can just tell. I hate not having a mirror.~
+  ++ ~It looks terribly handsome, don't worry.~ DO ~SetGlobal("LK#ArathHair","GLOBAL",1)~ + a16.1
+  ++ ~It's not--great. I could fix it for you if you like.~ DO ~SetGlobal("LK#ArathHair","GLOBAL",1)~ + a16.11
+  ++ ~It looks a little like a squirrel took up residence in your hair.~ DO ~SetGlobal("LK#ArathHair","GLOBAL",1)~ + a16.2
+  ++ ~You know, sometimes I have trouble telling if you're serious or not.~ DO ~SetGlobal("LK#ArathHair","GLOBAL",1)~ + a16.3
+  ++ ~Get out of my face, I don't give a damn about your hair!~ DO ~SetGlobal("LK#ArathHair","GLOBAL",1)~ + a16.4
+END
+
+IF ~~ a16.1
+  SAY ~Terribly handsome? Terribly?~
+  IF ~~ + a16.5
+END
+
+IF ~~ a16.2
+  SAY ~Oh, gods, it's worse than I thought.~
+  IF ~~ + a16.5
+END
+
+IF ~~ a16.3
+  SAY ~I am serious! Deadly serious!~
+  IF ~~ + a16.5
+END
+
+IF ~~ a16.4
+  SAY ~<CHARNAME>, I wouldn't ask if it wasn't important.~
+  IF ~~ + a16.5
+END
+
+IF ~~ a16.5
+  SAY ~I need to see a barber. <CHARNAME>, take me to a barber post-haste. It is of imperative importance. I may die.~
+  ++ ~We'll get you to a barber soon, alright? Just not right now.~ + a16.6
+  ++ ~I could cut it for you if you wanted, I've had a bit of experience in the past.~ + a16.11
+  ++ ~You won't die. You might have to wait until you can get a mirror in order to fix it yourself, though.~ + a16.7
+  ++ ~Well, you might die if we don't see a barber, but you will die if you don't shut up about your hair.~ + a16.8
+  ++ ~It's like a squirrel and a rhinocerous mated, and then laid eggs, and the eggs hatched, and a stampede of squirrel rhinocerouses rampaged through your hair...~ + a16.9
+END
+
+IF ~~ a16.6
+  SAY ~(sigh) I suppose I'll survive for a little while.~
+  IF ~~ + a16.10
+END
+
+IF ~~ a16.7
+  SAY ~Alright, well, I won't *die*, but I'll be terrified and anxious until I see a barber. I'll fumble in battle. I probably *will* die because of the fumbling.~
+  IF ~~ + a16.10
+END
+
+IF ~~ a16.8
+  SAY ~You are so callous, <CHARNAME>. So callous, and so cruel. I'll be terrified and anxious until I see a barber. I'll fumble in battle. I probably *will* die because of the fumbling.~
+  IF ~~ + a16.10
+END
+
+IF ~~ a16.9
+  SAY ~Your vote of confidence just lifts my spirits, <CHARNAME>. Lifts.~
+  = ~Ugh, what am I going to do?~
+  IF ~~ + a16.10
+END
+
+IF ~~ a16.10
+  SAY ~This is important to me, I don't want to look like the deformed cousin of Edgar the Troll. Please. As soon as possible?~
+  IF ~~ EXIT
+END
+
+IF ~~ a16.11
+  SAY ~You... you could? You'd do that for me?~
+  ++ ~Of course I would.~ + a16.12
+  ++ ~Well, I'll need something in return.~ + a16.13
+  ++ ~I will be getting paid, right?~ + a16.14
+  ++ ~I'll think about it.~ + a16.15
+END
+
+IF ~~ a16.12
+  SAY ~You have no idea what a relief that is! Thank you, <CHARNAME>!~
+  = ~We'll organise it over the campfire tonight! Ugh, it will be so good not to have to worry about looking like some kind of male hag...~
+  IF ~~ EXIT
+END
+
+IF ~~ a16.13
+  SAY ~Anything. Name it. I'll be your slave for a week.~
+  ++ ~You realise you are already my slave, right?~ + a16.16
+  ++ ~Kiss me.~ + a16.17
+  ++ ~Bring me some flowers.~ + a16.18
+  ++ ~Cuddle me.~ + a16.19
+  ++ ~Deal with the cooking for a week.~ + a16.20
+  ++ ~Do the dishes for a week.~ + a16.21
+  ++ ~Have woodland creatures serenade me.~ + a16.22
+  ++ ~You buy the next round of drinks.~ + a16.23
+  ++ ~I like the slave idea.~ + a16.24
+END
+
+IF ~~ a16.14
+  SAY ~I suppose I could pay you? If you wanted?~
+  ++ ~I was kidding, Arath.~ + a16.25
+  ++ ~Excellent. We'll agree on a price after the cut.~ + a16.26
+  ++ ~You have to give me something.~ + a16.13
+END
+
+IF ~~ a16.15
+  SAY ~Would you? Please?~
+  = ~We'll organise it over the campfire tonight. You have no idea how relieved I am to hear that.~
+  IF ~~ EXIT
+END
+
+IF ~~ a16.16
+  SAY ~Well. I suppose you've got a point there. What else do you want, apart from my eternal devotion?~
+  ++ ~Kiss me.~ + a16.17
+  ++ ~Bring me some flowers.~ + a16.18
+  ++ ~Cuddle me.~ + a16.18
+  ++ ~Deal with the cooking for a week.~ + a16.20
+  ++ ~Do the dishes for a week.~ + a16.19
+  ++ ~Have woodland creatures serenade me.~ + a16.18
+  ++ ~You buy the next round of drinks.~ + a16.18
+  ++ ~I like the slave idea.~ + a16.20
+END
+
+IF ~~ a16.17
+  SAY ~Kiss you?~
+  = ~Well... if that's what you want, I'm not complaining.~
+  = ~(Arath trails a hand over your cheek and pulls you in for a passionate kiss. He is breathing a little hard when you break apart.)~
+  = ~So it's a deal? You'll fix my hair?~
+  ++ ~Of course I will.~ + a16.12
+  ++ ~Mmm... for that, anything.~ + a16.12
+  ++ ~We'll just take you to a barber, I think.~ + a16.21
+  ++ ~That was a terrible kiss. No haircut for you!~ + a16.22
+  ++ ~I wanted a kiss, not a depth probing!~ + a16.23
+END
+
+IF ~~ a16.18
+  SAY ~At the next possible opportunity. So it's a deal? You'll fix my hair?~
+  ++ ~Of course I will.~ + a16.12
+  ++ ~On second thought, we'll just take you to a barber.~ + a16.24
+  ++ ~I'll think about it.~ + a16.15
+END
+
+IF ~~ a16.19
+  SAY ~But--~
+  = ~Alright. I'll do the dishes. I hate doing the dishes, but I will do the dishes, because I love my hair more than I hate the dishes.~
+  IF ~~ + a16.25
+END
+
+IF ~~ a16.20
+  SAY ~We'll, we'll see about that one, but I'll do my best.~
+  IF ~~ + a16.25
+END
+
+IF ~~ a16.21
+  SAY ~As long as I get it fixed, I'm happy.~
+  IF ~~ + a16.10
+END
+
+IF ~~ a16.22
+  SAY ~I'll have you know that was an excellent kiss. I am an excellent kisser.~
+  IF ~~ + a16.26
+END
+
+IF ~~ a16.23
+  SAY ~But I thought--~
+  = ~Oh. You wanted a chaste, tender kiss. Well. You could have said.~
+  IF ~~ + a16.26
+END
+
+IF ~~ a16.24
+  SAY ~I honestly don't care who fixes it as long as it's fixed soon. This is torture.~
+  IF ~~ EXIT
+END
+
+IF ~~ a16.25
+  SAY ~We'll iron out the details over the campfire tonight. You have no idea how relieved I am.~
+  IF ~~ EXIT
+END
+
+IF ~~ a16.26
+  SAY ~Fine, I'll just be ugly then. Forever. Until I can find a mirror and fix it. Please let us stay at an inn soon.~
+  IF ~~ EXIT
+END
+END

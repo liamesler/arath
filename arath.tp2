@@ -4,12 +4,12 @@
 // Basics
 BACKUP ~arath/backup~
 AUTHOR ~K'aeloree (kae@spellholdstudios.net)~
-VERSION ~.01~
-// README ~arath/arath_readme.html~
-MODDER
+VERSION ~v2~
+README ~arath/arath_readme.html~
+//MODDER
 
 // --------------------------------------------
-// Arath NPC Mod v1.0
+// Arath NPC Mod v2.0
 // --------------------------------------------
 // Component setup
 BEGIN ~Arath NPC for BGII: SoA & ToB~
@@ -43,136 +43,243 @@ CLEAR_IDS_MAP
 // Copying images and creatures
 COPY ~arath/images~ ~override~
 
-COPY_EXISTING ~cernd10.cre~ ~override/lk#arath.cre~
+COPY_EXISTING ~arath/creatures/lk#arath.cre~ ~override/lk#arath.cre~
   SAY NAME1 ~Arath~
   SAY NAME2 ~Arath Duskhelm~
   WRITE_EVALUATED_ASCII DIALOG          ~%DEST_RES%~ #8
   WRITE_EVALUATED_ASCII DEATHVAR        ~Arath~ #32
   WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_DEFAULT  ~~ #8
   WRITE_ASCII 0X34 ~LK#ARATS~ #8   //small portrait
   WRITE_ASCII 0x3c ~LK#ARATM~ #8   //medium portrait
-  WRITE_LONG 0x18 190000
-//  ADD_CRE_ITEM ~slng02~ #0 #0 #0 ~IDENTIFIED~ ~WEAPON1~ EQUIP
-//  ADD_CRE_ITEM ~bull02~ #20 #0 #0 ~IDENTIFIED~ ~QUIVER1~
-  SAY BIO ~~
-  SAY MORALE ~~
-  SAY LEADER ~~
-  SAY TIRED ~~
-  SAY BORED ~~
-  SAY BATTLE_CRY1 ~~
-  SAY BATTLE_CRY2 ~~
-  SAY BATTLE_CRY3 ~~
-  SAY BATTLE_CRY4 ~~
-  SAY BATTLE_CRY5 ~~
-  SAY DYING ~~
-  SAY HURT ~~
-  SAY AREA_DUNGEON ~~
-  SAY SELECT_COMMON1 ~~
-  SAY SELECT_COMMON2 ~~
-  SAY SELECT_COMMON3 ~~
-  SAY SELECT_COMMON4 ~~
-  SAY SELECT_COMMON5 ~~
-  SAY SELECT_COMMON6 ~~
-  SAY SELECT_ACTION1 ~~
-  SAY SELECT_ACTION2 ~~
-  SAY SELECT_ACTION3 ~~
-  SAY SELECT_ACTION4 ~~
-  SAY SELECT_ACTION5 ~~
-  SAY SELECT_ACTION6 ~~
-  SAY SELECT_ACTION7 ~~
-  SAY SELECT_RARE1 ~~
-  SAY SELECT_RARE2 ~~
-  SAY CRITICAL_HIT ~~
-  SAY CRITICAL_MISS ~~
-  SAY TARGET_IMMUNE ~~
-  SAY INVENTORY_FULL ~~
-  SAY HAPPY ~~
-  SAY UNHAPPY_ANNOYED ~~
-  SAY UNHAPPY_SERIOUS ~~
-  SAY SPELL_DISRUPTED ~~
-  SAY SET_A_TRAP ~~
-  SAY HIDDEN_IN_SHADOWS ~~
-  SAY PICKED_POCKET ~~
-
-
-COPY_EXISTING ~cernd14.cre~ ~override/lk#ara25.cre~
+  SAY BIO ~When asked about his past, ARATH smiles and artfully avoids the question. From what you can gather, he was born in Athkatla, the son of a wealthy nobleman, and grew up in relative peace until he discovered his father's ties to the slave trade. Furious at his father's involvement in people-trafficking, he ran away, eventually joining the local Druid Grove and studying to become a druid himself. Arath is quick both on his feet and in his speech, words tumbling out often before he can finish the last, and has a marked appreciation for the beauty of nature. Though he is in his mid-twenties, he exudes a confidence and charisma of one far older than his years would suggest. His eyes sparkle as you probe him with questions, but he does not answer your questions, saying only that he feels no need to recount the past when the present is so much more interesting.~
+  SAY MORALE ~No way am I staying here!~ [lk#ar01]
+  SAY LEADER ~Me? As leader? If you're sure. You know I prefer the sidelines to the frontlines, right?~ [lk#ar02]
+  SAY TIRED ~If I don't get my beauty sleep, you're going to pay.~ [lk#ar03]
+  SAY BORED ~Aren't there things we should be *doing*?~ [lk#ar04]
+  SAY BATTLE_CRY1 ~Hah-hah!~ [lk#ar05]
+  SAY BATTLE_CRY2 ~He's not just for show!~ [lk#ar06]
+  SAY BATTLE_CRY3 ~I could do this all day!~ [lk#ar07]
+  SAY BATTLE_CRY4 ~Try withstanding this!~ [lk#ar08]
+  SAY BATTLE_CRY5 ~For the mother!~  [lk#ar09]
+  SAY DYING ~~  [lk#ar10]
+  SAY HURT ~Someone, anyone, I need some healing!~ [lk#ar11]
+  SAY DAMAGE ~~ [lk#ar12]
+  SAY AREA_DUNGEON ~I've never been fond of spiders, but this is just ridiculous.~ [lk#ar13]
+  SAY AREA_FOREST ~There's just something about trees, grass and sunshine that makes me feel *terribly* alive.~ [lk#ar14]
+  SAY AREA_CITY ~Keep an eye out for bars, would you? I'm trying to keep tabs.~ [lk#ar15]
+  SAY AREA_DAY ~Well, the day's not ruined yet. Give it some time.~ [lk#ar16]
+  SAY AREA_NIGHT ~The stars are out, the moon is bright... I just hope there's nothing dangerous out tonight. Hey! That rhymed!~ [lk#ar17]
+  SAY SELECT_COMMON1 ~Yeah?~ [lk#ar18]
+  SAY SELECT_COMMON2 ~Can I help you?~ [lk#ar19]
+  SAY SELECT_COMMON3 ~Huh?~ [lk#ar20]
+  SAY SELECT_COMMON4 ~Hmm?~ [lk#ar21]
+  SAY SELECT_COMMON5 ~What's that?~ [lk#ar22]
+  SAY SELECT_COMMON6 ~What can I do you for?~ [lk#ar23]
+  SAY SELECT_ACTION1 ~Absolutely.~ [lk#ar24]
+  SAY SELECT_ACTION2 ~Sure thing.~ [lk#ar44]
+  SAY SELECT_ACTION3 ~Of course.~ [lk#ar25]
+  SAY SELECT_ACTION4 ~You sure?~ [lk#ar26]
+  SAY SELECT_ACTION5 ~Mm-hmm.~ [lk#ar27]
+  SAY SELECT_ACTION6 ~Right you are!~ [lk#ar28]
+  SAY SELECT_ACTION7 ~No problem.~ [lk#ar29]
+  SAY SELECT_RARE1 ~Three horses walk into a bar. You'd have thought the fourth would have ducked. Heh.~ [lk#ar30]
+  SAY SELECT_RARE2 ~If you keep poking me, I'm going to think you're trying to tell me something there.~ [lk#ar31]
+  SAY CRITICAL_HIT ~Hah!~ [lk#ar32]
+  SAY CRITICAL_MISS ~What?!~ [lk#ar33]
+  SAY TARGET_IMMUNE ~I can't hit it!~ [lk#ar34]
+  SAY INVENTORY_FULL ~There's only so much I can carry before it starts affecting my strut, you know.~ [lk#ar35]
+  SAY HAPPY ~I'm glad I decided to work with you. Well, mostly, anyway. I could do with a few more nights in a soft bed.~ [lk#ar36]
+  SAY UNHAPPY_ANNOYED ~Well... this is one way to do things, I suppose.~ [lk#ar37]
+  SAY UNHAPPY_SERIOUS ~Are you sure you know what you're doing? Because I'm not.~ [lk#ar38]
+  SAY UNHAPPY_BREAKING ~That's it, I can't take your crap any longer. I'm leaving.~ [lk#ar39]
+  SAY SPELL_DISRUPTED ~My spell!~ [lk#ar40]
+  SAY SET_A_TRAP ~Done and done.~ [lk#ar41]
+  SAY HIDDEN_IN_SHADOWS ~(sigh) I don't like staying hidden.~ [lk#ar42]
+  SAY PICKED_POCKET ~And another successful picked pocket. Excellent work, me!~ [lk#ar43]
+  
+COPY_EXISTING ~arath/creatures/lk#arath.cre~ ~override/lk#ar25.cre~
   SAY NAME1 ~Arath~
   SAY NAME2 ~Arath Duskhelm~
   WRITE_EVALUATED_ASCII DIALOG          ~%DEST_RES%~ #8
   WRITE_EVALUATED_ASCII DEATHVAR        ~Arath~ #32
   WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~%DEST_RES%~ #8
-  WRITE_LONG 0x18 190000
-//  ADD_CRE_ITEM ~slng02~ #0 #0 #0 ~IDENTIFIED~ ~WEAPON1~ EQUIP
-//  ADD_CRE_ITEM ~bull02~ #20 #0 #0 ~IDENTIFIED~ ~QUIVER1~
-  SAY BIO ~~
-  SAY MORALE ~~
-  SAY LEADER ~~
-  SAY TIRED ~~
-  SAY BORED ~~
-  SAY BATTLE_CRY1 ~~
-  SAY BATTLE_CRY2 ~~
-  SAY BATTLE_CRY3 ~~
-  SAY BATTLE_CRY4 ~~
-  SAY BATTLE_CRY5 ~~
-  SAY DYING ~~
-  SAY HURT ~~
-  SAY AREA_DUNGEON ~~
-  SAY SELECT_COMMON1 ~~
-  SAY SELECT_COMMON2 ~~
-  SAY SELECT_COMMON3 ~~
-  SAY SELECT_COMMON4 ~~
-  SAY SELECT_COMMON5 ~~
-  SAY SELECT_COMMON6 ~~
-  SAY SELECT_ACTION1 ~~
-  SAY SELECT_ACTION2 ~~
-  SAY SELECT_ACTION3 ~~
-  SAY SELECT_ACTION4 ~~
-  SAY SELECT_ACTION5 ~~
-  SAY SELECT_ACTION6 ~~
-  SAY SELECT_ACTION7 ~~
-  SAY SELECT_RARE1 ~~
-  SAY SELECT_RARE2 ~~
-  SAY CRITICAL_HIT ~~
-  SAY CRITICAL_MISS ~~
-  SAY TARGET_IMMUNE ~~
-  SAY INVENTORY_FULL ~~
-  SAY HAPPY ~~
-  SAY UNHAPPY_ANNOYED ~~
-  SAY UNHAPPY_SERIOUS ~~
-  SAY SPELL_DISRUPTED ~~
-  SAY SET_A_TRAP ~~
-  SAY HIDDEN_IN_SHADOWS ~~
-  SAY PICKED_POCKET ~~
+  WRITE_EVALUATED_ASCII SCRIPT_DEFAULT  ~~ #8
+  WRITE_ASCII 0X34 ~LK#ARATS~ #8   //small portrait
+  WRITE_ASCII 0x3c ~LK#ARATM~ #8   //medium portrait
+  WRITE_LONG 0x18 2500000
+  SAY BIO ~When asked about his past, ARATH smiles and artfully avoids the question. From what you can gather, he was born in Athkatla, the son of a wealthy nobleman, and grew up in relative peace until he discovered his father's ties to the slave trade. Furious at his father's involvement in people-trafficking, he ran away, eventually joining the local Druid Grove and studying to become a druid himself. Arath is quick both on his feet and in his speech, words tumbling out often before he can finish the last, and has a marked appreciation for the beauty of nature. Though he is in his mid-twenties, he exudes a confidence and charisma of one far older than his years would suggest. His eyes sparkle as you probe him with questions, but he does not answer your questions, saying only that he feels no need to recount the past when the present is so much more interesting.~
+  SAY MORALE ~No way am I staying here!~ [lk#ar01]
+  SAY LEADER ~Me? As leader? If you're sure. You know I prefer the sidelines to the frontlines, right?~ [lk#ar02]
+  SAY TIRED ~If I don't get my beauty sleep, you're going to pay.~ [lk#ar03]
+  SAY BORED ~Aren't there things we should be *doing*?~ [lk#ar04]
+  SAY BATTLE_CRY1 ~Hah-hah!~ [lk#ar05]
+  SAY BATTLE_CRY2 ~He's not just for show!~ [lk#ar06]
+  SAY BATTLE_CRY3 ~I could do this all day!~ [lk#ar07]
+  SAY BATTLE_CRY4 ~Try withstanding this!~ [lk#ar08]
+  SAY BATTLE_CRY5 ~For the mother!~  [lk#ar09]
+  SAY DYING ~~  [lk#ar10]
+  SAY HURT ~Someone, anyone, I need some healing!~ [lk#ar11]
+  SAY DAMAGE ~~ [lk#ar12]
+  SAY AREA_DUNGEON ~I've never been fond of spiders, but this is just ridiculous.~ [lk#ar13]
+  SAY AREA_FOREST ~There's just something about trees, grass and sunshine that makes me feel *terribly* alive.~ [lk#ar14]
+  SAY AREA_CITY ~Keep an eye out for bars, would you? I'm trying to keep tabs.~ [lk#ar15]
+  SAY AREA_DAY ~Well, the day's not ruined yet. Give it some time.~ [lk#ar16]
+  SAY AREA_NIGHT ~The stars are out, the moon is bright... I just hope there's nothing dangerous out tonight. Hey! That rhymed!~ [lk#ar17]
+  SAY SELECT_COMMON1 ~Yeah?~ [lk#ar18]
+  SAY SELECT_COMMON2 ~Can I help you?~ [lk#ar19]
+  SAY SELECT_COMMON3 ~Huh?~ [lk#ar20]
+  SAY SELECT_COMMON4 ~Hmm?~ [lk#ar21]
+  SAY SELECT_COMMON5 ~What's that?~ [lk#ar22]
+  SAY SELECT_COMMON6 ~What can I do you for?~ [lk#ar23]
+  SAY SELECT_ACTION1 ~Absolutely.~ [lk#ar24]
+  SAY SELECT_ACTION2 ~Sure thing.~ [lk#ar44]
+  SAY SELECT_ACTION3 ~Of course.~ [lk#ar25]
+  SAY SELECT_ACTION4 ~You sure?~ [lk#ar26]
+  SAY SELECT_ACTION5 ~Mm-hmm.~ [lk#ar27]
+  SAY SELECT_ACTION6 ~Right you are!~ [lk#ar28]
+  SAY SELECT_ACTION7 ~No problem.~ [lk#ar29]
+  SAY SELECT_RARE1 ~Three horses walk into a bar. You'd have thought the fourth would have ducked. Heh.~ [lk#ar30]
+  SAY SELECT_RARE2 ~If you keep poking me, I'm going to think you're trying to tell me something there.~ [lk#ar31]
+  SAY CRITICAL_HIT ~Hah!~ [lk#ar32]
+  SAY CRITICAL_MISS ~What?!~ [lk#ar33]
+  SAY TARGET_IMMUNE ~I can't hit it!~ [lk#ar34]
+  SAY INVENTORY_FULL ~There's only so much I can carry before it starts affecting my strut, you know.~ [lk#ar35]
+  SAY HAPPY ~I'm glad I decided to work with you. Well, mostly, anyway. I could do with a few more nights in a soft bed.~ [lk#ar36]
+  SAY UNHAPPY_ANNOYED ~Well... this is one way to do things, I suppose.~ [lk#ar37]
+  SAY UNHAPPY_SERIOUS ~Are you sure you know what you're doing? Because I'm not.~ [lk#ar38]
+  SAY UNHAPPY_BREAKING ~That's it, I can't take your crap any longer. I'm leaving.~ [lk#ar39]
+  SAY SPELL_DISRUPTED ~My spell!~ [lk#ar40]
+  SAY SET_A_TRAP ~Done and done.~ [lk#ar41]
+  SAY HIDDEN_IN_SHADOWS ~(sigh) I don't like staying hidden.~ [lk#ar42]
+  SAY PICKED_POCKET ~And another successful picked pocket. Excellent work, me!~ [lk#ar43]
 
 
-// Epilogues
-//COPY ~arath/epilogues/lk#arath1.2da~ ~override/lk#arath1.2da~
-//   REPLACE ~99999~ ~~
-
-//COPY ~arath/epilogues/lk#arath1.2da~ ~override/lk#arath2.2da~
-//   REPLACE ~99999~ ~~
-
-
-// Compiling dialogue...
-COMPILE ~arath/dialogue/lk#arath.d~
-COMPILE ~arath/dialogue/lk#aratj.d~
-COMPILE ~arath/dialogue/blk#arat.d~
-COMPILE ~arath/dialogue/lk#aratp.d~
-COMPILE ~arath/dialogue/lk#ara25.d~
-COMPILE ~arath/dialogue/lk#ar25j.d~
-COMPILE ~arath/dialogue/blk#ar25.d~
-COMPILE ~arath/dialogue/lk#ar25p.d~
-COMPILE ~arath/dialogue/fatesp.d~
+// Vampire!Arath
+COPY_EXISTING ~vampano.cre~ ~override/lk#arvmp.cre~
+  SAY NAME1 ~Arath~
+  SAY NAME2 ~Arath Duskhelm~
+  WRITE_EVALUATED_ASCII DIALOG          ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII DEATHVAR        ~%DEST_RES%~ #32
+  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~%DEST_RES%~ #8
+  WRITE_BYTE            0x0237          2
+  WRITE_BYTE            0x0275          2
+  WRITE_ASCII           0x0034          ~lk#aratv~ #8
+  WRITE_ASCII           0x003c          ~lk#aratm~ #8
+  REPLACE_CRE_ITEM ~LK#ARBDY~ #0 #0 #0 ~IDENTIFIED~ ~QITEM1~
 
 
-// Compiling scripts...
-COMPILE ~arath/scripts/lk#arath.baf~
-//COMPILE ~arath/scripts/lk#aratd.baf~
-COMPILE ~arath/scripts/lk#ara25.baf~
-COMPILE ~arath/scripts/lk#artr1.baf~
-COMPILE ~arath/scripts/lk#artr2.baf~
-EXTEND_TOP ~ar0406.bcs~ ~arath/scripts/ar0406.baf~
-//EXTEND_TOP ~ar6200.bcs~ ~arath/scripts/ar6200.baf~
+// Messenger
+COPY_EXISTING ~messen.cre~ ~override/lk#armes.cre~
+  SAY NAME1 ~Messenger~
+  SAY NAME2 ~Messenger~
+  WRITE_EVALUATED_ASCII DIALOG          ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII DEATHVAR        ~%DEST_RES%~ #32
+  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_CLASS    ~~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_RACE     ~~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_DEFAULT  ~~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_GENERAL  ~~ #8
+  
+
+// Archmage Wreimass
+COPY_EXISTING ~suelf10.cre~ ~override/lk#arwre.cre~
+  SAY NAME1 ~Archmage Wreimass~
+  SAY NAME2 ~Archmage Wreimass~
+  ADD_CRE_ITEM ~minhp1~ #1 #0 #0 ~IDENTIFIED~ ~AMULET~
+  WRITE_EVALUATED_ASCII DIALOG          ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII DEATHVAR        ~%DEST_RES%~ #32
+  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_CLASS    ~~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_RACE     ~~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_DEFAULT  ~~ #8
+
+// Guards
+COPY_EXISTING ~slarch1.cre~ ~override/lk#argd1.cre~
+  SAY NAME1 ~Slaver Guard~
+  SAY NAME2 ~Slaver Guard~
+  WRITE_EVALUATED_ASCII DIALOG          ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII DEATHVAR        ~%DEST_RES%~ #32
+  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~%DEST_RES%~ #8
+
+COPY_EXISTING ~slguard1.cre~ ~override/lk#argd2.cre~
+  SAY NAME1 ~Slaver Guard~
+  SAY NAME2 ~Slaver Guard~
+  WRITE_EVALUATED_ASCII DIALOG          ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII DEATHVAR        ~%DEST_RES%~ #32
+  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~%DEST_RES%~ #8
+
+COPY_EXISTING ~slguard2.cre~ ~override/lk#argd3.cre~
+  SAY NAME1 ~Slaver Guard~
+  SAY NAME2 ~Slaver Guard~
+  WRITE_EVALUATED_ASCII DIALOG          ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII DEATHVAR        ~%DEST_RES%~ #32
+  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~%DEST_RES%~ #8
+
+COPY_EXISTING ~slmage1.cre~ ~override/lk#argd4.cre~
+  SAY NAME1 ~Slaver Wizard~
+  SAY NAME2 ~Slaver Wizard~
+  WRITE_EVALUATED_ASCII DIALOG          ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII DEATHVAR        ~%DEST_RES%~ #32
+  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~%DEST_RES%~ #8
+
+COPY_EXISTING ~haegan.cre~ ~override/lk#arbos.cre~
+  SAY NAME1 ~Slaver Leader~
+  SAY NAME2 ~Slaver Leader~
+  ADD_CRE_ITEM ~minhp1~ #1 #0 #0 ~IDENTIFIED~ ~AMULET~
+  WRITE_EVALUATED_ASCII DIALOG          ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII DEATHVAR        ~%DEST_RES%~ #32
+  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_CLASS    ~~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_RACE     ~~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_DEFAULT  ~~ #8
+
+
+// Slave
+COPY_EXISTING ~slslav01.cre~ ~override/lk#arslv.cre~
+  SAY NAME1 ~Slave~
+  SAY NAME2 ~Slave~
+  WRITE_EVALUATED_ASCII DIALOG          ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII DEATHVAR        ~%DEST_RES%~ #32
+  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_CLASS    ~~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_RACE     ~~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_DEFAULT  ~~ #8
+
+
+// Guide
+COPY_EXISTING ~madeen.cre~ ~override/lk#argui.cre~
+  SAY NAME1 ~Guide~
+  SAY NAME2 ~Guide~
+  WRITE_EVALUATED_ASCII DIALOG          ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII DEATHVAR        ~%DEST_RES%~ #32
+  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_CLASS    ~~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_RACE     ~~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_DEFAULT  ~~ #8
+
+
+// Wraith Mother
+COPY_EXISTING ~noblew1.cre~ ~override/lk#armom.cre~
+  SAY NAME1 ~Annette~
+  SAY NAME2 ~Annette~
+  WRITE_EVALUATED_ASCII DIALOG          ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII DEATHVAR        ~%DEST_RES%~ #32
+  WRITE_EVALUATED_ASCII SCRIPT_OVERRIDE ~%DEST_RES%~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_CLASS    ~~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_RACE     ~~ #8
+  WRITE_EVALUATED_ASCII SCRIPT_DEFAULT  ~~ #8
+  
+
+// Items
+COPY_EXISTING ~miscbm.itm~ ~override/lk#arbdy.itm~
+  SAY NAME1 ~Arath's Body~
+  SAY NAME2 ~Arath's Body~
+  SAY DESC ~Arath was captured by Bodhi and infected with vampirism, forcing you to slay him. There may be some way to revive him, though you don't know what it would be.~
+
+
+// Spells
+COPY ~arath/spells~ ~override~
 
 
 // Adding talk condition to Yoshimo just in case...
@@ -188,6 +295,103 @@ APPEND ~interdia.2da~ ~Arath BLK#ARAT BLK#AR25~
 
 APPEND ~pdialog.2da~ ~Arath LK#ARATP LK#ARATJ LK#ARATD LK#AR25P LK#AR25J LK#AR25D LK#AR25~
    UNLESS ~Arath~
+   
+// Areas
+COPY ~arath/areas/lk#ar1ht.bmp~ ~override~
+COPY ~arath/areas/lk#ar1lm.bmp~ ~override~
+COPY ~arath/areas/lk#ar1sr.bmp~ ~override~
+COPY ~arath/areas/lk#ar1.mos~ ~override~
+COPY ~arath/areas/lk#ar1.tiz~ ~override~
+COPY ~arath/areas/lk#ar1.wed~ ~override~
+COPY ~arath/areas//lk#ar1.are~ ~override~
+  SAY 0x180 ~The water here is murky and foul, and many nearby plants look dead. Dead fish float down the stream.~
+  SAY 0x308 ~A smell of rotting plant and animal matter permeates the air around this small pool.~
+
+COPY ~arath/areas/lk#ar2ht.bmp~ ~override~
+COPY ~arath/areas/lk#ar2lm.bmp~ ~override~
+COPY ~arath/areas/lk#ar2sr.bmp~ ~override~
+COPY ~arath/areas/lk#ar2.mos~ ~override~
+COPY ~arath/areas/lk#ar2.tiz~ ~override~
+COPY ~arath/areas/lk#ar2.wed~ ~override~
+COPY ~arath/areas/lk#ar2.are~ ~override~
+
+APPEND ~mastarea.2da~
+  ~LK#AR1  value~
+UNLESS ~LK#AR1~
+
+
+// Audio
+COPY ~arath/audio/lk#blk.mus~ ~music~
+    
+COPY_EXISTING ~songlist.2da~ ~override~
+  SET_2DA_ENTRY 0 2 3 ~lk#blk.mus~
+    
+COPY ~arath/audio~ ~override~
+
+
+// End bat files
+COPY   ~arath/arathinstall.bat~   ~arathinstall.bat~
+COPY + ~arath/arathuninstall.bat~ ~arathuninstall.bat~
+    
+AT_INTERACTIVE_EXIT ~arathinstall.bat~
+AT_UNINSTALL        ~arath/arathuninstall.bat~
+
+
+// Epilogues
+COPY ~arath/epilogues/lk#arat.2da~ ~override/lk#arat1.2da~
+  REPLACE ~99999~ ~After the events at the Throne, Arath and <CHARNAME> continued adventuring for a time, but soon found the usual questing fare unsatisfying: after all, when one has faced down a god, what is there left to challenge? Both decided it was perhaps time to set the adventuring life aside, and bought a house in a beautiful section of Waterdeep, hoping to settle down and live a quieter life. But as with many relationships forged in the fire of combat, when doused in the cold reality of normal life, their union became a rocky one. The pressures of a permanent relationship were too much for Arath, who often fled to nearby taverns to drink himself into a stupor, and both struggled to recapture the fire of their early relationship. They weathered several years in Waterdeep, but a life spent adventuring isn't conducive to civilized life. After one particularly spectacular incident in a Waterdhavian bar, Arath and <CHARNAME> had to leave Waterdeep rather quickly, and Arath would later remark that putting on his old adventuring gear 'felt like coming home.' Together, they fought countless foes, saved villages from ruin and even defeated a rogue Sharran cult led by a powerful dracolich. When conquests became legend and recounts became tales, one truth remained: Arath and <CHARNAME> were a force of nature.~
+
+COPY ~arath/epilogues/lk#arat.2da~ ~override/lk#arat2.2da~
+  REPLACE ~99999~ ~<CHARNAME>'s ascension left Arath bereft and distraught. Furious at <PRO_HIMHER> for abandoning him, he made his way back to Athkatla, and drowned his sorrows at the Coronet and other such establishments. Though none are sure exactly what was said, it was only after a visit from the Archdruid Wreimass that Arath shook himself out of his fugue and returned to his grove, where he began the painful path to acceptance. He stayed there for a year before his thirst for action reasserted itself, and he joined a band of wandering adventurers, with whom he took out the remains of Bodhi's coven in Athkatla. He soon left them, however, joining another quest, and after that another, and another. He found himself unable to settle down, drifting from place to place doing what he could to destroy the unnatural and the undead, and he fell out of the history books after a particularly unpleasant encounter with a dracolich in Cormyr. He never took another lover, and few believe he was ever truly happy, but it is said that as he leapt into his final battle, it was <CHARNAME>'s name on his lips.~
+
+COPY ~arath/epilogues/lk#arat.2da~ ~override/lk#arat3.2da~
+  REPLACE ~99999~ ~After the events at the Throne, Arath returned to Athkatla, determined to eradicate the last of the slave trade permanently, and set up a defense against it in future. The first thing he did in Athkatla was lay claim to his father's lands and manor, which with Magistrate Bylanna's help he soon acquired, and sought out all his father's hidden documents. Once he had a clear idea of who his father's network had involved, he recruited a variety of men and women who also opposed slavery or had been former slaves, and took to the criminal underbelly of Athkatla with surgical precision. Any and all named in his father's documents were killed, with exceptions for those who provided information or managed to flee Athkatla in time, tunnels and passages that had been used for the slave trade were destroyed or collapsed, and word soon got out throughout Amn: the slave trade was no longer welcome in Athkatla. Arath persevered 'til well into his fifties, after which he returned to his former grove and became an elder druid, much to his personal amusement. He lived out the rest of his days in peace amongst nature once more. ~
+  
+
+// Compiling dialogue...
+COMPILE ~arath/dialogue/lk#arath.d~
+COMPILE ~arath/dialogue/lk#aratj.d~
+COMPILE ~arath/dialogue/blk#arat.d~
+COMPILE ~arath/dialogue/lk#aratp.d~
+COMPILE ~arath/dialogue/lk#ar25.d~
+COMPILE ~arath/dialogue/lk#ar25j.d~
+COMPILE ~arath/dialogue/blk#ar25.d~
+COMPILE ~arath/dialogue/lk#ar25p.d~
+
+
+// Compiling scripts...
+COMPILE ~arath/scripts/lk#arath.baf~
+COMPILE ~arath/scripts/lk#aratd.baf~
+COMPILE ~arath/scripts/lk#ar25.baf~
+COMPILE ~arath/scripts/lk#ar25d.baf~
+COMPILE ~arath/scripts/lk#artr1.baf~
+COMPILE ~arath/scripts/lk#artr2.baf~
+COMPILE ~arath/scripts/lk#artr3.baf~
+COMPILE ~arath/scripts/lk#arct1.baf~
+COMPILE ~arath/scripts/lk#arct2.baf~
+COMPILE ~arath/scripts/lk#arvmp.baf~
+COMPILE ~arath/scripts/lk#armes.baf~
+COMPILE ~arath/scripts/lk#arwre.baf~
+COMPILE ~arath/scripts/lk#arslv.baf~
+COMPILE ~arath/scripts/lk#argd1.baf~
+COMPILE ~arath/scripts/lk#argd2.baf~
+COMPILE ~arath/scripts/lk#argd3.baf~
+COMPILE ~arath/scripts/lk#argd4.baf~
+COMPILE ~arath/scripts/lk#arbos.baf~
+COMPILE ~arath/scripts/lk#argui.baf~
+COMPILE ~arath/scripts/lk#ar1.baf~
+COMPILE ~arath/scripts/lk#ar2.baf~
+COMPILE ~arath/scripts/lk#arwr1.baf~
+EXTEND_TOP ~ar0406.bcs~      ~arath/scripts/ar0406.baf~
+EXTEND_TOP ~ar0809.bcs~      ~arath/scripts/ar0809.baf~
+EXTEND_TOP ~ar6200.bcs~      ~arath/scripts/ar6200.baf~
+EXTEND_BOTTOM ~ar1900.bcs~   ~arath/scripts/ar1900.baf~
+EXTEND_BOTTOM ~ar1901.bcs~   ~arath/scripts/ar1901.baf~
+EXTEND_BOTTOM ~baldur.bcs~   ~arath/scripts/baldur.baf~
+EXTEND_BOTTOM ~cleanse.bcs~  ~arath/scripts/cleanse.baf~
+EXTEND_BOTTOM ~bodhiamb.bcs~ ~arath/scripts/bodhiamb.baf~
+EXTEND_BOTTOM ~vampamb.bcs~  ~arath/scripts/vampamb.baf~
+EXTEND_BOTTOM ~cut218g.bcs~  ~arath/scripts/lk#arwr2.baf~
 
 
 // Patching slaver sewers
@@ -312,4 +516,66 @@ COPY_EXISTING ~AR0405.are~ ~override/AR0405.are~
     WRITE_SHORT (~%vertiOff%~ + ~%#ofVerti%~ * 4 + 196 + 10) 417
     WRITE_SHORT (~%vertiOff%~ + ~%#ofVerti%~ * 4 + 196 + 12) 1525
     WRITE_SHORT (~%vertiOff%~ + ~%#ofVerti%~ * 4 + 196 + 14) 564
+BUT_ONLY_IF_IT_CHANGES
+
+// Patching Waukeen's Promenade
+COPY_EXISTING ~AR0700.are~ ~override/AR0700.are~
+    READ_SHORT ~0x05a~ ~#ofTrigg~
+    READ_SHORT ~0x080~ ~#ofVerti~
+    READ_SHORT ~0x05c~ ~triggOff~
+    READ_SHORT ~0x060~ ~spawnOff~
+    READ_SHORT ~0x068~ ~entraOff~
+    READ_SHORT ~0x070~ ~contaOff~
+    READ_SHORT ~0x078~ ~itemsOff~
+    READ_SHORT ~0x084~ ~ambiaOff~
+    READ_SHORT ~0x0A8~ ~doorsOff~
+    READ_SHORT ~0x07c~ ~vertiOff~
+    READ_SHORT ~0x0B0~ ~animaOff~
+    READ_SHORT ~0x0BC~ ~songsOff~
+    READ_SHORT ~0x0C0~ ~restcOff~
+    READ_SHORT ~0x0C4~ ~automOff~
+    WRITE_SHORT 0x05a (~%#ofTrigg%~ + 1)
+    WRITE_SHORT 0x060 (~%spawnOff%~ + 196)
+    WRITE_SHORT 0x068 (~%entraOff%~ + 196)
+    WRITE_SHORT 0x070 (~%contaOff%~ + 196)
+    WRITE_SHORT 0x078 (~%itemsOff%~ + 196)
+    WRITE_SHORT 0x084 (~%ambiaOff%~ + 196)
+    WRITE_SHORT 0x0A8 (~%doorsOff%~ + 196)
+    WRITE_SHORT 0x07c (~%vertiOff%~ + 196)
+    INSERT_BYTES (~%triggOff%~ + ~%#ofTrigg%~ * 196) 196
+    SET ~newVert~ = 4
+    WRITE_SHORT 0x080 (~%#ofVerti%~ + ~%newVert%~)
+    INSERT_BYTES (~%vertiOff%~ + ~%#ofVerti%~ * 4 + 196) (~%newVert%~ * 4)
+    WRITE_SHORT 0x0B0 (~%animaOff%~ + 196 + (~%newVert%~ * 4))
+    WRITE_SHORT 0x0BC (~%songsOff%~ + 196 + (~%newVert%~ * 4))
+    WRITE_SHORT 0x0C0 (~%restcOff%~ + 196 + (~%newVert%~ * 4))
+    WRITE_SHORT 0x0C4 (~%automOff%~ + 196 + (~%newVert%~ * 4))
+    WRITE_ASCII (~%triggOff%~ + ~%#ofTrigg%~ * 196) ~lk#artr3~  //Name of your trigger
+    WRITE_SHORT (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 32) 0    //where 0 stands for Proximity, 1 for Info Point and 2 for Travel (aka Exit) trigger
+    WRITE_LONG (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 34) 2112 //Define bounding box:
+    WRITE_LONG (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 36) 1709
+    WRITE_LONG (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 38) 3317
+    WRITE_LONG (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 40) 2446  //smallest X, smallest Y, largest X, largest Y of all new vertices
+    WRITE_SHORT (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 42) ~%newVert%~
+    WRITE_LONG (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 44) ~%#ofVerti%~
+    WRITE_SHORT (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 52) 0
+    WRITE_ASCII  (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 56) ~None~
+    WRITE_ASCII (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 64) 0
+    WRITE_LONG (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 96) 03    //08 - detectable trap
+    WRITE_LONG (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 100) 0
+    WRITE_LONG (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 104) 100    //Trap Detection - % of difficulty
+    WRITE_LONG (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 106) 100    //Trap Removal - % of difficulty
+    WRITE_LONG (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 108) 01    //Is Trapped Flag: 00 - No, 01 - Yes
+    WRITE_LONG (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 110) 00    //Trap Already Detected Flag: 00 - No, 01 - Yes
+    WRITE_LONG (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 112) 0    //Launcher X coord
+    WRITE_LONG (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 114) 0    //Launcher Y coord
+    WRITE_ASCII  (~%triggOff%~ + ~%#ofTrigg%~ * 196 + 124) ~lk#artr3~  //Associated Script - resref without extention
+    WRITE_SHORT (~%vertiOff%~ + ~%#ofVerti%~ * 4 + 196) 2112 //Now, write the new vertices. x, y
+    WRITE_SHORT (~%vertiOff%~ + ~%#ofVerti%~ * 4 + 196 + 2) 1709
+    WRITE_SHORT (~%vertiOff%~ + ~%#ofVerti%~ * 4 + 196 + 4) 3212
+    WRITE_SHORT (~%vertiOff%~ + ~%#ofVerti%~ * 4 + 196 + 6) 1709
+    WRITE_SHORT (~%vertiOff%~ + ~%#ofVerti%~ * 4 + 196 + 8) 3317
+    WRITE_SHORT (~%vertiOff%~ + ~%#ofVerti%~ * 4 + 196 + 10) 2446
+    WRITE_SHORT (~%vertiOff%~ + ~%#ofVerti%~ * 4 + 196 + 12) 2112
+    WRITE_SHORT (~%vertiOff%~ + ~%#ofVerti%~ * 4 + 196 + 14) 2446
 BUT_ONLY_IF_IT_CHANGES

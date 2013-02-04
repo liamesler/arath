@@ -2,8 +2,8 @@ IF
     InParty("Arath")
     IsOverMe(Player1)
     IsOverMe("Arath")
-    Global("LK#ArathCCTrig","AR0404",0)
+    Global("LK#ArathAnimals","GLOBAL",0)
 THEN
   RESPONSE #100
-    SetGlobal("LK#ArathCCTrig","AR0404",1)
+    SetGlobal("LK#ArathAnimals","GLOBAL",1)
 END

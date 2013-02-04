@@ -5,8 +5,8 @@
 // ****************************
 BEGIN LK#ARATH
 
-IF ~NumTimesTalkedTo(0)~ j
-  SAY ~Enjoying to<DAYNIGHT>'s entertainment, my <PRO_LADYLORD>? You don't look like one any of the Coronet's regulars.~
+IF ~Global("LK#ArathMet","AR0406",0)~ j
+  SAY ~Enjoying the entertainment, my <PRO_LADYLORD>? You don't look like one any of the Coronet's regulars.~ [lk#ar45]
   ++ ~I'm new around here.~ + j.1
   ++ ~Well hello there, handsome.~ + j.3
   ++ ~Could you explain what's going on?~ + j.2
@@ -61,7 +61,7 @@ IF ~~ j.8
 END
 
 IF ~~ j.9
-  SAY ~I'm Arath, by the way.~
+  SAY ~I'm Arath, by the way.~ [lk#ar46]
   ++ ~<CHARNAME>. A pleasure to meet you.~ + j.10
   ++ ~<CHARNAME>; perhaps you've heard of me?~ + j.11
   ++ ~I'm <CHARNAME>, savior of the Sword Coast.~ + j.12
@@ -89,7 +89,7 @@ IF ~~ j.13
   ++ ~What do you need?~ + j.14
   ++ ~What are you trying to do?~ + j.14
   ++ ~That depends on what I would be getting in exchange.~ + j.15
-  ++ ~I'm not interested.~ + j.4
+  ++ ~I'm not interested.~ + j.38
 END
 
 IF ~~ j.14
@@ -136,6 +136,11 @@ IF ~~ j.20
   IF ~~ DO ~SetGlobal("LK#ArathCCFight","AR0406",1) SetGlobal("LK#ArathMet","AR0406",1)~ EXIT
 END
 
+IF ~~ j.38
+  SAY ~Wait, just--I need some help.~
+  IF ~~ + j.14
+END
+
 
 // Before slaves released
 IF ~Global("LK#ArathMet","AR0406",1) !Global("FreeSlaves","GLOBAL",1) !Global("HendakReleased","AR0406",4) !Global("HendakReleased","AR0406",3)~ j.21
@@ -153,7 +158,7 @@ END
 
 // After slaves released; before slavers killed
 IF ~Global("LK#ArathCCTalk","GLOBAL",2)~ j.27
-  SAY ~I'm glad everyone got out alright. A few casualties, but mostly on their side.~
+  SAY ~I'm glad everyone got out alright. A few casualties, but mostly on their side.~ [lk#ar47]
   = ~Will you be going after the other slavers?~
   ++ ~I couldn't leave a job half-finished, could I?~ DO ~SetGlobal("LK#ArathSlaversNotDone","AR0406",1)~ + j.28
   ++ ~Another time, perhaps.~ DO ~SetGlobal("LK#ArathSlaversNotDone","AR0406",1)~ + j.29

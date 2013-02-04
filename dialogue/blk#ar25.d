@@ -63,7 +63,7 @@ See("Cernd")
 CombatCounter(0)
 Global("LK#ArathToBCernd","GLOBAL",0)~ THEN BLK#AR25 c1
   ~I don't envy these desert-dwellers. How hard life must be in a place as arid as this.~
-  DO ~SetGlobal("LK#ArathToBCernd","GLOBAL",0)~
+  DO ~SetGlobal("LK#ArathToBCernd","GLOBAL",1)~
   == BCERND25 ~Even the smallest of mice can find water in the desert, young pup. There are flora and fauna here beyond your ken, and they have all found ways to survive. So it is with those who make the desert their home. They must learn its secrets and expose themselves to its might: they will find succor if they are true sons and daughters of nature.~
   == BLK#AR25 ~If I exposed myself to the desert, I suspect the only thing I'd be getting is sunburnt.~
   == BCERND25 ~Yes, I suspect you might be right.~
