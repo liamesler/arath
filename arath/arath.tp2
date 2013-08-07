@@ -303,7 +303,7 @@ COPY ~arath/areas/lk#ar1sr.bmp~ ~override~
 COPY ~arath/areas/lk#ar1.mos~ ~override~
 COPY ~arath/areas/lk#ar1.tiz~ ~override~
 COPY ~arath/areas/lk#ar1.wed~ ~override~
-COPY ~arath/areas//lk#ar1.are~ ~override~
+COPY ~arath/areas/lk#ar1.are~ ~override~
   SAY 0x180 ~The water here is murky and foul, and many nearby plants look dead. Dead fish float down the stream.~
   SAY 0x308 ~A smell of rotting plant and animal matter permeates the air around this small pool.~
 
@@ -322,7 +322,7 @@ UNLESS ~LK#AR1~
 
 // Audio
 COPY ~arath/audio/lk#blk.mus~ ~music~
-    
+
 COPY_EXISTING ~songlist.2da~ ~override~
   SET_2DA_ENTRY 0 2 3 ~lk#blk.mus~
     
