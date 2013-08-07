@@ -301,7 +301,7 @@ COPY ~arath/areas/lk#ar1ht.bmp~ ~override~
 COPY ~arath/areas/lk#ar1lm.bmp~ ~override~
 COPY ~arath/areas/lk#ar1sr.bmp~ ~override~
 COPY ~arath/areas/lk#ar1.mos~ ~override~
-COPY ~arath/areas/lk#ar1.tiz~ ~override~
+COPY ~arath/areas/lk#ar1.tis~ ~override~
 COPY ~arath/areas/lk#ar1.wed~ ~override~
 COPY ~arath/areas/lk#ar1.are~ ~override~
   SAY 0x180 ~The water here is murky and foul, and many nearby plants look dead. Dead fish float down the stream.~
@@ -311,7 +311,7 @@ COPY ~arath/areas/lk#ar2ht.bmp~ ~override~
 COPY ~arath/areas/lk#ar2lm.bmp~ ~override~
 COPY ~arath/areas/lk#ar2sr.bmp~ ~override~
 COPY ~arath/areas/lk#ar2.mos~ ~override~
-COPY ~arath/areas/lk#ar2.tiz~ ~override~
+COPY ~arath/areas/lk#ar2.tis~ ~override~
 COPY ~arath/areas/lk#ar2.wed~ ~override~
 COPY ~arath/areas/lk#ar2.are~ ~override~
 
