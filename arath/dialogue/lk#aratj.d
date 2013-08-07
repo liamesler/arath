@@ -2033,60 +2033,6 @@ IF ~~ f1.8
 END
 
 
-// LT1: Fighter
-IF ~Global("LK#ArathLovetalks","GLOBAL",2) OR(6) Class(Player1,PALADIN_ALL) Class(Player1,FIGHTER_ALL) Kit(Player1,BARBARIAN) Class(Player1,MONK) Class(Player1,RANGER) Class(Player1,FIGHTER_DRUID) Class(Player1,FIGHTER_MAGE_CLERIC)~ f1.9
-  SAY ~Hey, <CHARNAME>, I just wanted to let you know, you're damn good in battle. I'd hate to be on the other side of the field, let me just say that.~
-  ++ ~Thanks, Arath. You're not so bad yourself.~ DO ~IncrementGlobal("LK#ArathLovetalks","GLOBAL",1) RealSetGlobalTimer("LK#ArathLovetalkTimer","GLOBAL",3600)~ + f1.10
-  ++ ~Practice does make perfect. And I've had a *lot* of practice.~ DO ~IncrementGlobal("LK#ArathLovetalks","GLOBAL",1) RealSetGlobalTimer("LK#ArathLovetalkTimer","GLOBAL",3600)~ + f1.11
-  ++ ~My skills are nothing to brag about.~ DO ~IncrementGlobal("LK#ArathLovetalks","GLOBAL",1) RealSetGlobalTimer("LK#ArathLovetalkTimer","GLOBAL",3600)~ + f1.10
-  ++ ~What do you want, Arath?~ DO ~IncrementGlobal("LK#ArathLovetalks","GLOBAL",1) RealSetGlobalTimer("LK#ArathLovetalkTimer","GLOBAL",3600)~ + f1.12
-END
-
-IF ~~ f1.10
-  SAY ~I don't know about that. Every time I have to cast something I worry I'll accidentally call lightning down and obliterate us all.~
-  = ~That... probably doesn't fill you with confidence, does it?~
-  IF ~~ + f1.13
-END
-
-IF ~~ f1.11
-  SAY ~This is true. Much more than your average adventurer, I'd wager.~
-  IF ~~ + f1.13
-END
-
-IF ~~ f1.12
-  SAY ~A man isn't allowed to give a free compliment? What a world it is we live in!~
-  IF ~~ EXIT
-END
-
-IF ~~ f1.13
-  SAY ~Anyway, you're quite the sight. In battle, I mean. Well, out of it too, but that's for another conversation. (wink)~
-  ++ ~Why, thank you, Arath! It's been at least three hours since you last complimented me.~ + f1.14
-  ++ ~I don't know if I have your charm, though.~ + f1.15
-  ++ ~How about we make this conversation about that?~ + f1.16
-  ++ ~I'm not remotely interested in your flattery, druid.~ + f1.17
-END
-
-IF ~~ f1.14
-  SAY ~Three hours is a long time! I'll have to make sure it doesn't stretch that long next time. (grin)~
-  IF ~~ EXIT
-END
-
-IF ~~ f1.15
-  SAY ~That's true. But hey, charm isn't everything! (grin)~
-  IF ~~ EXIT
-END
-
-IF ~~ f1.16
-  SAY ~Well, we *could*, but that would take all the fun out of the next conversation!~
-  IF ~~ EXIT
-END
-
-IF ~~ f1.17
-  SAY ~Pshh, fine. Be that way.~
-  IF ~~ EXIT
-END
-
-
 // LT1: Thieves
 IF ~Global("LK#ArathLovetalks","GLOBAL",2) Class(Player1,THIEF_ALL)~ f1.18
   SAY ~I have to admire the way you can just blend into the crowd, <CHARNAME>. I've never seen anything quite like it. One minute you're there and I'm talking to you, the next, I'm talking to myself.~
@@ -2152,6 +2098,60 @@ END
 IF ~~ f1.28
   SAY ~Anyway. I just wanted to tell you that I'd like to hear you play more.~
   = ~Come on, we should get going.~
+  IF ~~ EXIT
+END
+
+
+// LT1: Fighter
+IF ~Global("LK#ArathLovetalks","GLOBAL",2)~ f1.9
+  SAY ~Hey, <CHARNAME>, I just wanted to let you know, you're damn good in battle. I'd hate to be on the other side of the field, let me just say that.~
+  ++ ~Thanks, Arath. You're not so bad yourself.~ DO ~IncrementGlobal("LK#ArathLovetalks","GLOBAL",1) RealSetGlobalTimer("LK#ArathLovetalkTimer","GLOBAL",3600)~ + f1.10
+  ++ ~Practice does make perfect. And I've had a *lot* of practice.~ DO ~IncrementGlobal("LK#ArathLovetalks","GLOBAL",1) RealSetGlobalTimer("LK#ArathLovetalkTimer","GLOBAL",3600)~ + f1.11
+  ++ ~My skills are nothing to brag about.~ DO ~IncrementGlobal("LK#ArathLovetalks","GLOBAL",1) RealSetGlobalTimer("LK#ArathLovetalkTimer","GLOBAL",3600)~ + f1.10
+  ++ ~What do you want, Arath?~ DO ~IncrementGlobal("LK#ArathLovetalks","GLOBAL",1) RealSetGlobalTimer("LK#ArathLovetalkTimer","GLOBAL",3600)~ + f1.12
+END
+
+IF ~~ f1.10
+  SAY ~I don't know about that. Every time I have to cast something I worry I'll accidentally call lightning down and obliterate us all.~
+  = ~That... probably doesn't fill you with confidence, does it?~
+  IF ~~ + f1.13
+END
+
+IF ~~ f1.11
+  SAY ~This is true. Much more than your average adventurer, I'd wager.~
+  IF ~~ + f1.13
+END
+
+IF ~~ f1.12
+  SAY ~A man isn't allowed to give a free compliment? What a world it is we live in!~
+  IF ~~ EXIT
+END
+
+IF ~~ f1.13
+  SAY ~Anyway, you're quite the sight. In battle, I mean. Well, out of it too, but that's for another conversation. (wink)~
+  ++ ~Why, thank you, Arath! It's been at least three hours since you last complimented me.~ + f1.14
+  ++ ~I don't know if I have your charm, though.~ + f1.15
+  ++ ~How about we make this conversation about that?~ + f1.16
+  ++ ~I'm not remotely interested in your flattery, druid.~ + f1.17
+END
+
+IF ~~ f1.14
+  SAY ~Three hours is a long time! I'll have to make sure it doesn't stretch that long next time. (grin)~
+  IF ~~ EXIT
+END
+
+IF ~~ f1.15
+  SAY ~That's true. But hey, charm isn't everything! (grin)~
+  IF ~~ EXIT
+END
+
+IF ~~ f1.16
+  SAY ~Well, we *could*, but that would take all the fun out of the next conversation!~
+  IF ~~ EXIT
+END
+
+IF ~~ f1.17
+  SAY ~Pshh, fine. Be that way.~
   IF ~~ EXIT
 END
 
